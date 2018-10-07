@@ -1,0 +1,12 @@
+9/13/18
+- The ping sent out on the ng app's startup can be recieved and relayed
+by the python webserver to the raspberry pi. Next up is work in the frontend, to make it so that a button can be used to send out the message to be relayed to trigger actions on the pi. 
+
+9/22/18
+- Frontend:
+	Added buttons to send specific commands to the server
+	Having an issue where the socket is always in the 'CONNECTING' state
+
+- Server:
+	Switched from SocketService, to TCPServer after finding out that python has a built in socketserver library
+	Need to work on dealing with the raspberrypi's IP(Assigning it a static IP or having a way of keeping it updated.)
