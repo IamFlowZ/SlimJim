@@ -22,12 +22,13 @@ import { Output } from '../models/Output';
 
 export class HomePage implements OnInit{
 
-  Velocity: number = 0; // Test value for input objects
-  message: Output;// Object formatted for output
-  input: Input;// Object used to generate an input value.
-  OngoingTouches: Input[] = [this.input]; // Object storing touch events. Gets translated into MessageQueue.
-  MessageQueue: Output[] = [this.message]; // Object that stores the collection of inputs to be sent out.
-  Joystick: any;
+  //Velocity: number = 0; // Test value for Input objects
+  Message: Output;// Object formatted for output
+  Input: Input;// Object used to generate an Input value.
+  OngoingTouches: Input[]; // Object storing touch events. Gets translated into MessageQueue.
+  MessageQueue: Output[]; // Object that stores the collection of Inputs to be sent out.
+  Joystick: any; // Object housing the html svg element
+  offset: any; // Object used for Calculating touch event coordinates
 
   constructor(public navCtrl: NavController, private socketService:SocketService) {
 
@@ -36,18 +37,37 @@ export class HomePage implements OnInit{
   }
 
   ngAfterContentInit() {
-    this.jsTouch();
-    console.log(this.OngoingTouches);
+    this.Joystick = document.getElementById("JoystickBackground");
+
+    // Calculating the Joystick elements offset
+    let rect = this.Joystick.getBoundingClientRect();
+    let body = document.body.getBoundingClientRect();
+    let offset_x = rect.left - body.left;
+    let offset_y = rect.top - body.top;
+    this.offset = {
+      x: offset_x,
+      y: offset_y
+    }
+    console.log("offset: " + JSON.stringify(this.offset));
+
+    // Adding the joystick event listeners
+    this.Joystick.addEventListener("pointerdown", this.handleStart, false);
+    this.Joystick.addEventListener("pointerup", this.handleEnd, false);
+    this.Joystick.addEventListener("pointercancel", this.handleCancel, false);
+
+    //Init for Queue(s)
+    this.OngoingTouches = [];
+    this.MessageQueue = [];
   }
 
-  public sendMessage(direction: string) { // Method that prepares and emits User input to send to the relay server.
+  public sendMessage(direction: string) { // Method that prepares and emits User Input to send to the relay server.
     console.log(direction);
-    this.message = {
+    this.Message = {
       velocity: this.Velocity,
       heading: direction
     }
-    console.log(JSON.stringify(this.message));
-    this.socketService.send(this.message);
+    console.log(JSON.stringify(this.Message));
+    this.socketService.send(this.Message);
   }
 
   public setVelo(number: number) { // Method used by the ngForm for setting the velocity value
@@ -59,46 +79,32 @@ export class HomePage implements OnInit{
     return { identifier: touch.identifier, pageX: touch.pageX, pageY: touch.pageY };
   }
 
-  public jsTouch() {
-    this.Joystick = document.getElementById("JoystickBackground");
-    console.log(this.Joystick);
-    this.Joystick.addEventListener("pointerdown", this.handleStart, false);
+   handleStart = (event) => {
     this.Joystick.addEventListener("pointermove", this.handleMove, false);
-    this.Joystick.addEventListener("pointerup", this.handleEnd, false);
-    this.Joystick.addEventListener("pointercancel", this.handleCancel, false);
   }
 
-  public handleStart(event) {
-    let touches = event.change;
-    console.log("touch: " + JSON.stringify(this.input));
-    this.input = {
-      x: event.pageX,
-      y: event.pageY
+  handleMove = (event) => {
+    this.Input = {
+      x: event.pageX - (this.offset.x + 100),
+      y: -(event.pageY - (this.offset.y + 100) - 137)
     }
-    console.log(this.input);
-    for(var i = 0; i < touches.length; i++) {
-        this.OngoingTouches.push(this.copyTouch(touches[i]));
-    }
+    console.log("move: " + JSON.stringify(this.Input));
+    this.OngoingTouches.push(this.Input);
+    // console.log("OngoingTouches: " + JSON.stringify(this.OngoingTouches));
+   }
 
-    // touches.push(this.input);
-    // console.log(JSON.stringify(this.OngoingTouches));
-    // console.log(HomePage.OngoingTouches.length);
-
-  }
-
-  public handleEnd(event) {
-    console.log("lifted");
+   handleEnd = (event) => {
+     this.Joystick.removeEventListener("pointermove", this.handleMove, false);
+     console.log("lifted");
 
 
   }
 
-  public handleCancel(event) {
-    console.log("cancelled");
+  handleCancel = (event) => {
+    this.Joystick.removeEventListener("pointermove", this.handleMove, false);
+    console.log("canceled");
 
   }
 
-  public handleMove(event) {
-    console.log("moved");
 
-  }
 }

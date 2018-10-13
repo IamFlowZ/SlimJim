@@ -25,8 +25,6 @@ rm.remote_gpio_init()
 def handle(msg):
     print(msg)
     m_msg = MessageModel(msg['heading'], msg['velocity'])
-    #m_msg.fill(msg.heading, msg.velocity)
-    #print(m_msg)
     heading = msg['heading']
     value = int(msg['velocity']) / 100
     print(value)
@@ -45,6 +43,6 @@ def handle(msg):
         return
         
     
-socketio.run(app)
+socketio.run(app, port=9999)
 
     

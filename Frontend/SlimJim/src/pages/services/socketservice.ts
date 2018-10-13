@@ -11,7 +11,7 @@ import * as socketIO from 'socket.io-client';
   *
   */
 
-const SERVER_URL = "http://localhost:5000";
+const SERVER_URL = "http://localhost:9999";
 
 @Injectable()
 export class SocketService {
