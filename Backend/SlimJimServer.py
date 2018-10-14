@@ -24,23 +24,24 @@ rm.remote_gpio_init()
 @socketio.on('message')
 def handle(msg):
     print(msg)
-    m_msg = MessageModel(msg['heading'], msg['velocity'])
-    heading = msg['heading']
-    value = int(msg['velocity']) / 100
-    print(value)
-    if heading == 'left':
-        rm.left(value)
-    elif heading == 'right':
-        rm.right(value)
-    elif heading == 'forward':
-        rm.forward(value)
-    elif heading == 'backward':
-        rm.backward(value)
-    elif heading == 'ping':
-        socketio.send('pong')
-    else:
-        print('Recieved something other than a direction: ' + msg)
-        return
+    print()
+    #m_msg = MessageModel(msg['heading'], msg['velocity'])
+    #heading = msg['heading']
+    #value = int(msg['velocity']) / 100
+    #print(value)
+    #if heading == 'left':
+        #rm.left(value)
+    #elif heading == 'right':
+        #rm.right(value)
+    #elif heading == 'forward':
+        #rm.forward(value)
+    #elif heading == 'backward':
+        #rm.backward(value)
+    #elif heading == 'ping':
+        #socketio.send('pong')
+    #else:
+        #print('Recieved something other than a direction: ' + msg)
+        #return
         
     
 socketio.run(app, port=9999)

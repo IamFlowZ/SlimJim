@@ -17,10 +17,18 @@ page-home {
   #manualButtons {
     margin-left: 500px;
     margin-top: 25px;
-    // margin-top: 20px;
+  }
+
+  #manualVelocity {
+    padding-left: 75px;
+
+    input {
+      width: 4%;
+      margin-top: 10px;
+    }
   }
   .joystick {
-    margin-top: -175px;
+    margin-top: -110px;
     margin-left: 1000px;
   }
 
