@@ -26,18 +26,17 @@ def handle(msg):
     print(msg)
     print()
     #m_msg = MessageModel(msg['heading'], msg['velocity'])
-    #heading = msg['heading']
     #value = int(msg['velocity']) / 100
     #print(value)
-    #if heading == 'left':
+    #if msg['heading'] == 'left':
         #rm.left(value)
-    #elif heading == 'right':
+    #elif msg['heading'] == 'right':
         #rm.right(value)
-    #elif heading == 'forward':
+    #elif msg['heading'] == 'forward':
         #rm.forward(value)
-    #elif heading == 'backward':
+    #elif msg['heading'] == 'backward':
         #rm.backward(value)
-    #elif heading == 'ping':
+    #elif msg['heading'] == 'ping':
         #socketio.send('pong')
     #else:
         #print('Recieved something other than a direction: ' + msg)
