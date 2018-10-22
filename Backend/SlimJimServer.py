@@ -25,7 +25,23 @@ rm.remote_gpio_init()
 def handle(msg):
     print(msg)
     print()
-    #m_msg = MessageModel(msg['heading'], msg['velocity'])
+    x_axis = 0
+    primary_motor = ''
+    secondary_motor = ''
+    velocity = 0
+    for i in range(len(msg)):
+        msg_obj = MessageModel(msg[i]['x'], msg[i]['y'])
+        print("x: " + str(m_msg.message['x']) + " y: " + str(m_msg.message['y']))
+        if msg_obj.message['x'] >= 0:
+            x_axis = True
+            primary_motor = 'right'
+        else:
+            x_axis = False
+            primary_motor = 'left'
+
+        rm.
+
+        #print(str())
     #value = int(msg['velocity']) / 100
     #print(value)
     #if msg['heading'] == 'left':

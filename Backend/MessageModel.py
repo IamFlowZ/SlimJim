@@ -1,6 +1,6 @@
 class MessageModel:
-    def __init__(self, heading, velocity):
+    def __init__(self, x, y):
         self.message = {
-            'velocity': velocity,
-            'heading': heading
+            'x': x,
+            'y': y
         }

@@ -13,26 +13,26 @@ class Remote_GPIO:
     def __init__(self):
         self.run = True
         self.rem_pi = PiGPIOFactory()
-        self.Jim = Robot(left=(2,3), right=(20,21))
+        self.Jim = Robot(left=(20,21), right=(19,26))
         
     def remote_gpio_init(self):
         print("connected to pi")
         while self.run:
             print("testing forward")
-            self.Jim.forward()
-            sleep(1)
+            self.Jim.forward(1)
+            sleep(3)
             self.Jim.stop()
             print("testing backward")
-            self.Jim.backward()
-            sleep(1)
+            self.Jim.backward(1)
+            sleep(3)
             self.Jim.stop()
             print("testing left")
-            self.Jim.left()
-            sleep(1)
+            self.Jim.left(1)
+            sleep(3)
             self.Jim.stop()
             print("testing right")
-            self.Jim.right()
-            sleep(1)
+            self.Jim.right(1)
+            sleep(3)
             self.Jim.stop()
             print("finished tests")
             self.close_connection()
@@ -52,6 +52,11 @@ class Remote_GPIO:
     def right(self, value):
         print("going right @: " + str(value))
         self.Jim.right(value)
+
+    def process_input(self, value, mag):
+        print("Heading: " + value + " @: " + str(mag))
+        self.Jim.value(mag)
         
+    
     def close_connection(self):
         self.run = False
