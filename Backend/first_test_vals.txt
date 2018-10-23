@@ -1,0 +1,151 @@
+[{'x': -35, 'y': -18}, {'x': -33, 'y': -19}, {'x': -31, 'y': -19}, {'x': -30, 'y': -19}, {'x': -29, 'y': -19}, {'x': -17, 'y': -19}, {'x': -12, 'y': -19}, {'x': -3, 'y': -19}, {'x': 4, 'y': -18}, {'x': 12, 'y': -17}, {'x': 15, 'y': -16}]
+
+x: -35 y: -18
+prm_mtr: -18 sec_mtr: -35
+x: -33 y: -19
+prm_mtr: -19 sec_mtr: -33
+x: -31 y: -19
+prm_mtr: -19 sec_mtr: -31
+x: -30 y: -19
+prm_mtr: -19 sec_mtr: -30
+x: -29 y: -19
+prm_mtr: -19 sec_mtr: -29
+x: -17 y: -19
+prm_mtr: -19 sec_mtr: -2
+x: -12 y: -19
+prm_mtr: -19 sec_mtr: -7
+x: -3 y: -19
+prm_mtr: -19 sec_mtr: -16
+x: 4 y: -18
+prm_mtr: -18 sec_mtr: -22
+x: 12 y: -17
+prm_mtr: -17 sec_mtr: -29
+x: 15 y: -16
+prm_mtr: -16 sec_mtr: -31
+[{'x': 38, 'y': -9}, {'x': 47, 'y': -5}, {'x': 56, 'y': -1}, {'x': 64, 'y': 4}, {'x': 71, 'y': 9}, {'x': 77, 'y': 16}, {'x': 82, 'y': 22}, {'x': 85, 'y': 29}, {'x': 87, 'y': 35}, {'x': 88, 'y': 41}, {'x': 88, 'y': 47}]
+
+x: 38 y: -9
+prm_mtr: -9 sec_mtr: -38
+x: 47 y: -5
+prm_mtr: -5 sec_mtr: -47
+x: 56 y: -1
+prm_mtr: -1 sec_mtr: -56
+x: 64 y: 4
+prm_mtr: 4 sec_mtr: 64
+x: 71 y: 9
+prm_mtr: 9 sec_mtr: 71
+x: 77 y: 16
+prm_mtr: 16 sec_mtr: 77
+x: 82 y: 22
+prm_mtr: 22 sec_mtr: 82
+x: 85 y: 29
+prm_mtr: 29 sec_mtr: 85
+x: 87 y: 35
+prm_mtr: 35 sec_mtr: 87
+x: 88 y: 41
+prm_mtr: 41 sec_mtr: 88
+x: 88 y: 47
+prm_mtr: 47 sec_mtr: 88
+[{'x': 88, 'y': 52}, {'x': 85, 'y': 57}, {'x': 82, 'y': 62}, {'x': 79, 'y': 67}, {'x': 74, 'y': 72}, {'x': 68, 'y': 77}, {'x': 63, 'y': 81}, {'x': 56, 'y': 85}, {'x': 48, 'y': 88}, {'x': 40, 'y': 91}, {'x': 32, 'y': 94}]
+
+x: 88 y: 52
+prm_mtr: 52 sec_mtr: 88
+x: 85 y: 57
+prm_mtr: 57 sec_mtr: 85
+x: 82 y: 62
+prm_mtr: 62 sec_mtr: 82
+x: 79 y: 67
+prm_mtr: 67 sec_mtr: 79
+x: 74 y: 72
+prm_mtr: 72 sec_mtr: 74
+x: 68 y: 77
+prm_mtr: 77 sec_mtr: 9
+x: 63 y: 81
+prm_mtr: 81 sec_mtr: 18
+x: 56 y: 85
+prm_mtr: 85 sec_mtr: 29
+x: 48 y: 88
+prm_mtr: 88 sec_mtr: 40
+x: 40 y: 91
+prm_mtr: 91 sec_mtr: 51
+x: 32 y: 94
+prm_mtr: 94 sec_mtr: 62
+[{'x': 23, 'y': 95}, {'x': 15, 'y': 97}, {'x': 7, 'y': 97}, {'x': -1, 'y': 97}, {'x': -8, 'y': 97}, {'x': -15, 'y': 97}, {'x': -21, 'y': 97}, {'x': -27, 'y': 95}, {'x': -31, 'y': 94}, {'x': -36, 'y': 92}, {'x': -39, 'y': 89}]
+
+x: 23 y: 95
+prm_mtr: 95 sec_mtr: 72
+x: 15 y: 97
+prm_mtr: 97 sec_mtr: 82
+x: 7 y: 97
+prm_mtr: 97 sec_mtr: 90
+x: -1 y: 97
+prm_mtr: 97 sec_mtr: 98
+x: -8 y: 97
+prm_mtr: 97 sec_mtr: 105
+x: -15 y: 97
+prm_mtr: 97 sec_mtr: 112
+x: -21 y: 97
+prm_mtr: 97 sec_mtr: 118
+x: -27 y: 95
+prm_mtr: 95 sec_mtr: 122
+x: -31 y: 94
+prm_mtr: 94 sec_mtr: 125
+x: -36 y: 92
+prm_mtr: 92 sec_mtr: 128
+x: -39 y: 89
+prm_mtr: 89 sec_mtr: 128
+[{'x': -42, 'y': 87}, {'x': -44, 'y': 84}, {'x': -46, 'y': 80}, {'x': -47, 'y': 76}, {'x': -47, 'y': 72}, {'x': -47, 'y': 67}, {'x': -47, 'y': 64}, {'x': -46, 'y': 58}, {'x': -44, 'y': 53}, {'x': -42, 'y': 49}, {'x': -39, 'y': 44}]
+
+x: -42 y: 87
+prm_mtr: 87 sec_mtr: 129
+x: -44 y: 84
+prm_mtr: 84 sec_mtr: 128
+x: -46 y: 80
+prm_mtr: 80 sec_mtr: 126
+x: -47 y: 76
+prm_mtr: 76 sec_mtr: 123
+x: -47 y: 72
+prm_mtr: 72 sec_mtr: 119
+x: -47 y: 67
+prm_mtr: 67 sec_mtr: 114
+x: -47 y: 64
+prm_mtr: 64 sec_mtr: 111
+x: -46 y: 58
+prm_mtr: 58 sec_mtr: 104
+x: -44 y: 53
+prm_mtr: 53 sec_mtr: 97
+x: -42 y: 49
+prm_mtr: 49 sec_mtr: 91
+x: -39 y: 44
+prm_mtr: 44 sec_mtr: 83
+[{'x': -36, 'y': 39}, {'x': -32, 'y': 35}, {'x': -28, 'y': 30}, {'x': -25, 'y': 27}, {'x': -20, 'y': 23}, {'x': -16, 'y': 20}, {'x': -12, 'y': 17}, {'x': -7, 'y': 14}, {'x': -3, 'y': 12}, {'x': 1, 'y': 11}, {'x': 5, 'y': 10}]
+
+x: -36 y: 39
+prm_mtr: 39 sec_mtr: 75
+x: -32 y: 35
+prm_mtr: 35 sec_mtr: 67
+x: -28 y: 30
+prm_mtr: 30 sec_mtr: 58
+x: -25 y: 27
+prm_mtr: 27 sec_mtr: 52
+x: -20 y: 23
+prm_mtr: 23 sec_mtr: 43
+x: -16 y: 20
+prm_mtr: 20 sec_mtr: 36
+x: -12 y: 17
+prm_mtr: 17 sec_mtr: 29
+x: -7 y: 14
+prm_mtr: 14 sec_mtr: 21
+x: -3 y: 12
+prm_mtr: 12 sec_mtr: 15
+x: 1 y: 11
+prm_mtr: 11 sec_mtr: 10
+x: 5 y: 10
+prm_mtr: 10 sec_mtr: 5
+[{'x': 8, 'y': 9}, {'x': 9, 'y': 9}]
+
+x: 8 y: 9
+prm_mtr: 9 sec_mtr: 1
+x: 9 y: 9
+prm_mtr: 9 sec_mtr: 0
+[]

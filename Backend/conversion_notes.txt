@@ -1,0 +1,7 @@
+My goal is to have a system where, with two DC motors attaced, a user will feel as if they're driving a normal car (i.e. the motors are in sync in terms forward or backward)
+Behaviors of this are...
+a.) both motors are always spinning in the same direction
+b.) while turning, one motor will spin less than the other
+c.) so that full forward, will be both motors wide open
+d.) full either left or right will be only the opposing motor on, so as to pivot on it's inside wheel
+	-turning right means the right motor is off, and the left motor is full on, and vice versa
