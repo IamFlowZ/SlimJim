@@ -5,7 +5,7 @@
 #                                                                               #
 #################################################################################
 
-from gpiozero import Robot
+from gpiozero import Motor
 from gpiozero.pins.pigpio import PiGPIOFactory
 from time import sleep
 
@@ -13,33 +13,42 @@ class Remote_GPIO:
     def __init__(self):
         self.run = True
         self.rem_pi = PiGPIOFactory()
-        self.Jim = Robot(left=(20,21), right=(19,26))
+        self.motor_left = Motor(20,21)
+        self.motor_right = Motor(19,26)
+
         
     def remote_gpio_init(self):
         print("connected to pi")
         while self.run:
             print("testing forward")
-            self.Jim.forward(1)
-            sleep(3)
-            self.Jim.stop()
+            self.motor_left.forward()
+            self.motor_right.forward()
+            sleep(2)
+            self.motor_right.stop()
+            self.motor_left.stop()
             print("testing backward")
-            self.Jim.backward(1)
-            sleep(3)
-            self.Jim.stop()
+            self.motor_left.backward()
+            self.motor_right.backward()
+            sleep(2)
+            self.motor_right.stop()
+            self.motor_left.stop()
             print("testing left")
-            self.Jim.left(1)
-            sleep(3)
-            self.Jim.stop()
+            self.motor_left.forward()
+            sleep(2)
+            self.motor_left.stop()
             print("testing right")
-            self.Jim.right(1)
-            sleep(3)
-            self.Jim.stop()
+            self.motor_right.forward()
+            sleep(2)
+            self.motor_right.stop()
             print("finished tests")
+            self.motor_left.stop()
+            self.motor_right.stop()
             self.close_connection()
 
+    # Passing zero means turning it off, Passing one is full on.
     def left(self, value):
         print("going left @: " + str(value))
-        self.Jim.left(value)
+        
         
     def forward(self, value):
         print("going forward @: " + str(value))
