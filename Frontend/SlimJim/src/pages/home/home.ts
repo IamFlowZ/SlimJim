@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { NavController } from 'ionic-angular';
 import { SocketService } from '../services/socketservice';
 import { Input } from '../models/Input';
@@ -28,9 +29,10 @@ export class HomePage implements OnInit{
   offset: any; // Object used for Calculating touch event coordinates
   msgTimer: any;
   timeout: boolean;
+  cam_img: any;
 
 
-  constructor(public navCtrl: NavController, private socketService:SocketService) {
+  constructor(public navCtrl: NavController, private socketService:SocketService, private http: HttpClient) {
 
     this.socketService.initSocket();
 
@@ -57,7 +59,8 @@ export class HomePage implements OnInit{
 
     //Init for Queue(s)
     this.TouchBuffer = [];
-
+    this.get_pi_footage();
+    // setTimeout(this.get_pi_footage(), 5000);
   }
 
   // Someone said this might be useful. Leaving it here for now.
@@ -88,12 +91,6 @@ export class HomePage implements OnInit{
       this.msgTimer = setInterval(this.socketService.send(this.TouchBuffer), 500);
       this.TouchBuffer = [];
     }
-
-    // Checking to see if the last touch is within five of the last one. If it is, do nothing, else add it into the queue.
-    // This can be removed if it causes too much lag.
-    // if( Math.abs(this.Input.x - this.TouchBuffer[this.TouchBuffer.length-1].x) < 5 && Math.abs(this.Input.y - this.TouchBuffer[this.TouchBuffer.length-1].y) < 5 ) {}
-    // else { this.TouchBuffer.push(this.Input); }
-    // console.log("this.TouchBuffer: " + JSON.stringify(this.TouchBuffer));
    }
 
    handleEnd = (event) => {
@@ -118,4 +115,19 @@ export class HomePage implements OnInit{
   emitTimeout() {
     this.timeout = true;
   }
+
+  get_pi_footage() {
+    this.cam_img = document.getElementById("mjpeg_dest");
+    if(this.socketService.onCamFtg() === undefined) {
+        this.cam_img.src = "/conversion_snips.png"
+    } else {
+        this.cam_img.src = this.socketService.onCamFtg();
+    }
+
+    // while(true) {
+    //   this.cam_img = document.getElementById("mjpeg_dest");
+    //   this.cam_img.src = this.http.get("http://10.0.0.212/html/cam_get.php");
+    // }
+  }
+
 }

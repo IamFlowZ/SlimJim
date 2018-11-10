@@ -43,28 +43,7 @@ class Remote_GPIO:
             print("finished tests")
             self.motor_left.stop()
             self.motor_right.stop()
-            self.close_connection()
-
-    # Passing zero means turning it off, Passing one is full on.
-    def left(self, value):
-        print("going left @: " + str(value))
-        
-        
-    def forward(self, value):
-        print("going forward @: " + str(value))
-        self.Jim.forward(value)
-        
-    def backward(self, value):
-        print("going backward @: " + str(value))
-        self.Jim.backward(value)
-        
-    def right(self, value):
-        print("going right @: " + str(value))
-        self.Jim.right(value)
-
-    def process_input(self, value, mag):
-        print("Heading: " + value + " @: " + str(mag))
-        self.Jim.value(mag)
+            self.close_connection() 
         
     
     def close_connection(self):

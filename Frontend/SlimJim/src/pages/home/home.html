@@ -12,21 +12,14 @@
       <strong><h3 style="padding: 0; margin: 0; text-decoration: underline;">Ping the SlimJim server.</h3></strong>
       <button ion-button style="margin-left: 85px;" ng-click="sendMessage('ping')">Ping</button>
     </div>
-    <!-- <div id="manualButtons">
-      <h2 style="padding-left: 90px; text-decoration: underline;">Manual Controls</h2>
-      <button ion-button (click)="sendMessage('left')">Left</button>
-      <button ion-button (click)="sendMessage('forward')">Forward</button>
-      <button ion-button (click)="sendMessage('backward')">Backward</button>
-      <button ion-button (click)="sendMessage('right')">Right</button>
-      <div id="manualVelocity">
-          <span>Set velocity: </span><input width="3%" [(ngModel)]="Velocity" #velocity="ngModel" ><span> Velocity: {{Velocity}}</span>
-      </div>
-    </div> -->
     <div class="joystick">
       <h2 style="padding-left: 90px; text-decoration: underline;">Joystick</h2>
       <svg width="300px" height="300px" style="margin: 0; padding-left: 10px;">
         <circle id="JoystickBackground" cx="125" cy="125" r="100" stroke="grey" stroke-width="4" fill="Gainsboro"/>
       </svg>
     </div>
+  </div>
+  <div id="cam_dest">
+    <img id="mjpeg_dest" />
   </div>
 </ion-content>

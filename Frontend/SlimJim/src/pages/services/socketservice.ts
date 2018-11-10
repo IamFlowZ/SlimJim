@@ -13,31 +13,40 @@ import * as socketIO from 'socket.io-client';
 *
 */
 
-/* Cross origin isn't working, and I suspect it's coming from here. Because when both sides are local, everything checks out.
+/*
+* Cross origin isn't working, and I suspect it's coming from here. Because when both sides are local, everything checks out.
 *  Switch the backend onto the rpi, can't make a connection. Python's implementation allows CORS by default, soooo...
 * const SERVER_URL = "http://10.0.0.212:9999"; is a no-go.
 */
 
-  const SERVER_URL = "http://localhost:9999";
+  const SERVER_URL = "http://10.0.0.212:9999";
 
 @Injectable()
 export class SocketService {
 
   private socket;
 
-  public initSocket() {
+  initSocket() {
     this.socket = socketIO(SERVER_URL);
+    //this.socket.set('origins', 'http://10.0.0.212:9999');
+    //this.socket.
+
   }
 
-  public send(message) {
+  send(message) {
     this.socket.emit('message', message);
   }
 
-  public onMsg() {
+  onMsg() {
     this.socket.on('message', (message) => {
       console.log(message.data);
     })
   }
 
+  onCamFtg() {
+    this.socket.on('cam data', (data) => {
+      return data;
+    })
+  }
 
 }

@@ -4,7 +4,7 @@
 # configured with motors and a camera meant to be controlled by the gpio library  #
 # inside of this application                                                      #
 #                                                                                 #
-###################################################################################
+#---------------------------------------------------------------------------------#
 
 
 from flask import Flask, render_template
@@ -16,7 +16,7 @@ from MessageModel import *
 # Main loop
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
-socketio = SocketIO(app, cors_allowed_origins="10.0.0.153")
+socketio = SocketIO(app)
 rm = rem_gpio()
 rm.remote_gpio_init()
 
@@ -80,8 +80,12 @@ def handle(msg):
         
 
 
+def emit_cam():
+    cam_data = open("/dev/shm/mjpeg/cam.jpg")
+    socketio.emit('cam data', cam_data)
+
         
     
 socketio.run(app, port=9999)
-
+emit_cam()
     
