@@ -82,7 +82,8 @@ def handle(msg):
 
 def emit_cam():
     cam_data = open("/dev/shm/mjpeg/cam.jpg")
-    socketio.emit('cam data', cam_data)
+    while True: 
+        socketio.emit('cam data', cam_data)
 
         
     

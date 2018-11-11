@@ -19,7 +19,7 @@ import * as socketIO from 'socket.io-client';
 * const SERVER_URL = "http://10.0.0.212:9999"; is a no-go.
 */
 
-  const SERVER_URL = "http://10.0.0.212:9999";
+  const SERVER_URL = "http://10.0.0.212:8080";
 
 @Injectable()
 export class SocketService {
