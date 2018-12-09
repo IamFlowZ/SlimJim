@@ -59,7 +59,7 @@ export class HomePage implements OnInit{
 
     //Init for Queue(s)
     this.TouchBuffer = [];
-    this.get_pi_footage();
+    // this.get_pi_footage();
     // setTimeout(this.get_pi_footage(), 5000);
   }
 
@@ -116,18 +116,18 @@ export class HomePage implements OnInit{
     this.timeout = true;
   }
 
-  get_pi_footage() {
-    this.cam_img = document.getElementById("mjpeg_dest");
-    if(this.socketService.onCamFtg() === undefined) {
-        this.cam_img.src = "/conversion_snips.png"
-    } else {
-        this.cam_img.src = this.socketService.onCamFtg();
-    }
-
-    // while(true) {
-    //   this.cam_img = document.getElementById("mjpeg_dest");
-    //   this.cam_img.src = this.http.get("http://10.0.0.212/html/cam_get.php");
-    // }
-  }
+  // get_pi_footage() {
+  //   this.cam_img = document.getElementById("mjpeg_dest");
+  //   if(this.socketService.onCamFtg() === undefined) {
+  //       this.cam_img.src = "/conversion_snips.png"
+  //   } else {
+  //       this.cam_img.src = this.socketService.onCamFtg();
+  //   }
+  //
+  //   // while(true) {
+  //   //   this.cam_img = document.getElementById("mjpeg_dest");
+  //   //   this.cam_img.src = this.http.get("http://10.0.0.212/html/cam_get.php");
+  //   // }
+  // }
 
 }
