@@ -1,4 +1,4 @@
-###################################################################################
+#---------------------------------------------------------------------------------#
 #                                                                                 #
 # This is a relay server enabling clients to remotely connect to a raspberry pi   #
 # configured with motors and a camera meant to be controlled by the gpio library  #
@@ -12,7 +12,6 @@ from flask_socketio import SocketIO, send
 from remote_gpio import Remote_GPIO as rem_gpio
 from MessageModel import *
 
-
 # Main loop
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
@@ -20,21 +19,20 @@ socketio = SocketIO(app)
 rm = rem_gpio()
 rm.remote_gpio_init()
 
-
 @socketio.on('message')
 def handle(msg):
     print(msg)
     print()
 
-    # I know this is jank af. However I spent a lot of effort figuring out the above, before I knew of the forward AND backward commands
+    # I know this is jank af. However I spent a lot of effort figuring out the below, before I knew of the forward AND backward commands
     # So this is my making due, before I drop this pos all together.
     # I might refactor this some day. But if you're a human other than me. Feel free to fix this shit.
-    
+
     if len(msg) > 0:
         for i in range(len(msg)): #For every value recieved from the client
             msg_obj = MessageModel(msg[i]['x'], msg[i]['y'])
             print("x: " + str(msg_obj.input['x']) + " y: " + str(msg_obj.input['y']))
-            
+
             if msg_obj.input['x'] >= 0: # Assigning motor priority to be used later
                 msg_obj.output['prm_mtr'] = 'left'
                 msg_obj.output['sec_mtr'] = 'right'
@@ -60,7 +58,7 @@ def handle(msg):
 
             print("prm_mtr: " + str(msg_obj.output['prm_mtr_spd']) + " sec_mtr: " + str(msg_obj.output['sec_mtr_spd']))
 
-            
+
             if msg_obj.output['prm_mtr'] == 'left' and msg_obj.output['prm_mtr_spd'] > 0:
                 rm.motor_left.forward(msg_obj.output['prm_mtr_spd'] / 100)
                 rm.motor_right.forward(msg_obj.output['sec_mtr_spd'] / 100)
@@ -77,16 +75,11 @@ def handle(msg):
         print("recieved lift")
         rm.motor_left.stop()
         rm.motor_right.stop()
-        
-
 
 def emit_cam():
     cam_data = open("/dev/shm/mjpeg/cam.jpg")
-    while True: 
+    while True:
         socketio.emit('cam data', cam_data)
 
-        
-    
 socketio.run(app, port=9999)
 emit_cam()
-    
